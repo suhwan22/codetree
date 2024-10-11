@@ -43,7 +43,7 @@ int main()
     x = 1;
     y = robot[i];
     setRobot(x, y, i);
-    cout << "x: " << x << ", y: " << y<< "\n";
+    // cout << "x: " << x << ", y: " << y<< "\n";
     while (1)
     {
       if (isValidPos(x + 1, y, i))
@@ -67,7 +67,7 @@ int main()
       }
       else
         break;
-      printForest();
+      // printForest();
     }
     if (x < 4)
       resetForest();
@@ -124,7 +124,7 @@ void Down(int x, int y, int n)
     forest[nx][ny] = n;
   }
   E[n].first += 1;
-  cout << "[Down] x: " << x << ", y: " << y << ", exit(" << E[n].first << ", " << E[n].second << ")\n";
+  // cout << "[Down] x: " << x << ", y: " << y << ", exit(" << E[n].first << ", " << E[n].second << ")\n";
 }
 
 void Right(int x, int y, int n)
@@ -152,7 +152,7 @@ void Right(int x, int y, int n)
   dir[n] = d != 3 ? d + 1 : 0;
   E[n].first = x + dx[dir[n]];
   E[n].second = y + dy[dir[n]];
-  cout << "[Right] x: " << x << ", y: " << y << ", exit(" << E[n].first << ", " << E[n].second << ")\n";
+  // cout << "[Right] x: " << x << ", y: " << y << ", exit(" << E[n].first << ", " << E[n].second << ")\n";
 }
 
 void Left(int x, int y, int n)
@@ -180,7 +180,7 @@ void Left(int x, int y, int n)
   dir[n] = d != 0 ? d - 1 : 3;
   E[n].first = x + dx[dir[n]];
   E[n].second = y + dy[dir[n]];
-  cout << "[Left] x: " << x << ", y: " << y << ", exit(" << E[n].first << ", " << E[n].second << ")\n";
+  // cout << "[Left] x: " << x << ", y: " << y << ", exit(" << E[n].first << ", " << E[n].second << ")\n";
 }
 
 long long calScore(int x, int y)
@@ -198,7 +198,7 @@ long long calScore(int x, int y)
     v[cur.first][cur.second] = true;
     if (x == 5 && y == 3)
     {
-      cout << "cur(" << cur.first << ", " << cur.second << ")\n";
+      // cout << "cur(" << cur.first << ", " << cur.second << ")\n";
     }
     q.pop();
     for (int i = 0; i < 4; i++)
@@ -207,24 +207,24 @@ long long calScore(int x, int y)
       ny = cur.second + dy[i];
         if (x == 5 && y == 3)
         {
-          cout << "(nx, ny) = (" << nx << ", " << ny << ") before \n";
+          // cout << "(nx, ny) = (" << nx << ", " << ny << ") before \n";
         }
       if (nx < 0 || ny < 1 || nx >= r + 3 || ny > c) continue;
         if (x == 5 && y == 3)
         {
-          cout << "(nx, ny) = (" << nx << ", " << ny << ") out of bound\n";
+          // cout << "(nx, ny) = (" << nx << ", " << ny << ") out of bound\n";
         }
       if (v[nx][ny] || forest[nx][ny] == 0) continue;
         if (x == 5 && y == 3)
         {
-          cout << "(nx, ny) = (" << nx << ", " << ny << ") vistied\n";
+          // cout << "(nx, ny) = (" << nx << ", " << ny << ") vistied\n";
         }
       if (forest[cur.first][cur.second] != forest[nx][ny])
       {
         // 다른 로봇을 볼때
         if (x == 5 && y == 3)
         {
-          cout << "(nx, ny) = (" << nx << ", " << ny << ")\n";
+          // cout << "(nx, ny) = (" << nx << ", " << ny << ")\n";
         }
 
         if (cur == E[forest[cur.first][cur.second]])
@@ -244,7 +244,7 @@ long long calScore(int x, int y)
       }
     }
   }
-  cout << "[calScore] " <<  score << "\n";
+  // cout << "[calScore] " <<  score << "\n";
   return score;
 }
 
